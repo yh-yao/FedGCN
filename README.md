@@ -20,3 +20,4 @@ This repository contains the code for [FedGCN: Convergence and Communication Tra
 ## Main file
   * main.ipynb
   * Theory Evaluation.ipynb
+  * Communication Cost.ipynb
