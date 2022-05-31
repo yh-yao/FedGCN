@@ -6,7 +6,7 @@ import sys
 import pickle as pkl
 import numpy as np
 import scipy.sparse as sp
-from scipy.sparse.linalg.eigen.arpack import eigsh
+#from scipy.sparse.linalg.eigen.arpack import eigsh
 import networkx as nx
 
 
