@@ -114,6 +114,26 @@ def Lhop_Block_matrix_train(epoch, model, optimizer, features, adj, labels, comm
     #print(loss_train,acc_train)
     return loss_train.item(), acc_train.item()
 
+def FedSage_train(epoch, model, optimizer, features, adj, labels, communicate_index, in_com_train_data_index):
+    model.train()
+    optimizer.zero_grad()
+    #print(features.shape)
+    
+    
+    output = model(features, adj[communicate_index][:,communicate_index])
+   
+    loss_train = F.nll_loss(output[in_com_train_data_index], labels[communicate_index][in_com_train_data_index])
+    
+    
+    acc_train = accuracy(output[in_com_train_data_index], labels[communicate_index][in_com_train_data_index])
+    
+
+    loss_train.backward()
+    optimizer.step()
+    optimizer.zero_grad()
+    #print(loss_train,acc_train)
+    return loss_train.item(), acc_train.item()
+
 
 def Communicate_train(epoch, model, optimizer, features, adj, labels, communicate_index, split_data_indexes, in_split_train_data_index):
     model.train()
