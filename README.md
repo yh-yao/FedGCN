@@ -1,4 +1,4 @@
-# FedGCN: Convergence-Communication Tradeoffs in Federated Training of Graph Convolutional Networks
+# FedGCN: Convergence-Communication Tradeoffs in Federated Training of Graph Convolutional Networks (NeurIPS 2023)
 ## Introduction
 
 > This repository contains the implementation of the FedGCN algorithm, that leverages federated learning to efficiently train Graph Convolutional Network (GCN) models for semi-supervised node classification. It achieves rapid convergence while minimizing communication overhead. The algorithm implements a framework, where clients exclusively interact with the central server during a single pre-training step.
