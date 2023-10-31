@@ -1,0 +1,47 @@
+# A unique identifier for the head node and workers of this cluster.
+cluster_name: FedGraphTest
+
+max_workers: 3
+
+# Cloud-provider specific configuration.
+provider:
+    type: aws
+    region: us-east-1
+
+docker:
+  image: "jiayuc/fedgraph:torch113"
+  container_name: "ray_container"
+
+file_mounts:
+  ~/modules/: /Users/yuhangya/Desktop/research/FedHGT/torch-distributed-test/mnmp/ray_fed
+  # mount local dir on all nodes in cluster. Could contain Python module you want to import in entry-point script.
+
+
+auth:
+    ssh_user: ubuntu
+
+available_node_types:
+    # Configurations for the head node.
+    head:
+        resources: {}
+        node_config:
+            InstanceType: t3.xlarge
+            ImageId: ami-05183526bce570b80
+            BlockDeviceMappings:
+                - DeviceName: /dev/sda1
+                  Ebs:
+                      VolumeSize: 100
+    # Configurations for the worker nodes.
+    worker:
+        # To experiment with autoscaling, set min_workers to 0.
+        # min_workers: 0
+        min_workers: 3
+        max_workers: 3
+        node_config:
+            InstanceType: t3.xlarge
+            ImageId: ami-05183526bce570b80
+            BlockDeviceMappings:
+                - DeviceName: /dev/sda1
+                  Ebs:
+                      VolumeSize: 100
+head_node_type: head

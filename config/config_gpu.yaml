@@ -1,0 +1,46 @@
+# A unique identifier for the head node and workers of this cluster.
+cluster_name: FedGraphTest
+
+max_workers: 5
+
+# Cloud-provider specific configuration.
+provider:
+    type: aws
+    region: us-east-1
+
+docker:
+  image: "jiayuc/fedgraph:torch113-cu117"
+  container_name: "ray_container"
+
+file_mounts:
+  ~/modules/: ../ray_fed
+
+auth:
+    ssh_user: ubuntu
+
+available_node_types:
+    # Configurations for the head node.
+    head:
+        resources: {}
+        node_config:
+            InstanceType: g4dn.xlarge
+            ImageId: ami-08caafdb533b9ff20
+            BlockDeviceMappings:
+                - DeviceName: /dev/sda1
+                  Ebs:
+                      VolumeSize: 150
+    # Configurations for the worker nodes.
+    worker:
+        # To experiment with autoscaling, set min_workers to 0.
+        # min_workers: 0
+        resources: {}
+        min_workers: 5
+        max_workers: 5
+        node_config:
+            InstanceType: g4dn.xlarge
+            ImageId: ami-08caafdb533b9ff20
+            BlockDeviceMappings:
+                - DeviceName: /dev/sda1
+                  Ebs:
+                      VolumeSize: 150
+head_node_type: head
