@@ -9,7 +9,7 @@ Paper: [FedGCN: Convergence-Communication Tradeoffs in Federated Training of Gra
 
 1. Clone the repository in your local machine from github directly or using the below command:
 
-    `git clone https://github.com/FedGraph/torch-distributed-test.git`
+    `git clone https://github.com/yh-yao/FedGCN.git`
 
 2. Running the code on a new virtual Python environment is recommended.
 
