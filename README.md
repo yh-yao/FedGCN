@@ -5,6 +5,9 @@
 
 Paper: [FedGCN: Convergence-Communication Tradeoffs in Federated Training of Graph Convolutional Networks](https://arxiv.org/pdf/2201.12433.pdf)
 
+## Google Colab Example for Quick Start
+https://github.com/yh-yao/FedGCN/blob/master/FedGCN_Colab_Example.ipynb
+
 ## Installation
 
 1. Clone the repository in your local machine from github directly or using the below command:
