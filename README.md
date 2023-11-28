@@ -8,43 +8,45 @@ Paper: [FedGCN: Convergence-Communication Tradeoffs in Federated Training of Gra
 ## Google Colab Example for Quick Start
 https://github.com/yh-yao/FedGCN/blob/master/FedGCN_Colab_Example.ipynb
 
-## Installation
+## Quick Installation
 
-1. Clone the repository in your local machine from github directly or using the below command:
+```
+git clone https://github.com/yh-yao/FedGCN.git
 
-    `git clone https://github.com/yh-yao/FedGCN.git`
+conda create --name fedgcn python=3.10
+conda activate fedgcn
 
-2. Running the code on a new virtual Python environment is recommended.
+pip install torch_geometric
+pip install ray
+pip install ogb
+pip install tensorboard
 
-**2.1.	Create a new Python virtual environment:**
+pip install torch_geometric
 
-1. Install virtualenv on your system. Virtualenv is a tool to set up your Python environments.
+#for CPU version
+pip install torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.1.0+cpu.html
 
-    `pip install virtualenv` 
+#for GPU version with CUDA 11.8
+pip install torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.1.0+cu118.html
+# trouble shoot https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html
+```
 
-2. Create a new project folder, or go to the project folder where you have cloned the code in your terminal, and run the following command:
 
-    `virtualenv <virtual-environment-name>`
 
-3.	Now that a new Python virtual environment in created, activate it by using the below command in the same project folder as above:
+## Alternate Installation
+```
+git clone https://github.com/yh-yao/FedGCN.git
 
-    *On MacOS/Linux:*
-    
-    `source <virtual-environment-name>/bin/activate`
+pip install virtualenv
+virtualenv <virtual-environment-name>
 
-    *On Windows:*
-    
-    `venv\Scripts\activate`
+# On MacOS/Linux:
+source <virtual-environment-name>/bin/activate
+# On Windows:
+venv\Scripts\activate
 
-You can also do the above steps using conda.
-
-**2.2.	Setting up the environment:**
-
-Run the below command to install all the packages listed in the requirements.txt file:
-
-`pip install -r requirements.txt`
-
-##	Running the code
+pip install -r requirements.txt
+```
 
 ### Local Simulation:
 
