@@ -100,3 +100,10 @@ You can also specify other arguments as needed. Here is a detailed list of all t
 | PubMed | Citation Network - Life Sciences | 19,717 |	88,648 | 3 |
 | ogbn-products |	Product Recommendation | 2,449,029 | 61,859,140 | 47 |		
 | ogbn-arxiv | Citation Network | 169,343 | 1,166,243 | 40 |
+
+## FedGCN Team
+[Yuhang Yao (CMU)](https://github.com/yh-yao), 
+[Jiayu Chang (CMU)](https://www.linkedin.com/in/chang-jiayu/), 
+[Shoba Arunasalam (CMU)](https://www.linkedin.com/in/shobaarunasalam/), 
+[Xinyi (Cynthia) Fan (CMU)](https://www.linkedin.com/in/xinyicynthiafan/),
+[Weizhao Jin (USC)](https://weizhaojin.netlify.app)
