@@ -8,8 +8,6 @@ Paper: [FedGCN: Convergence-Communication Tradeoffs in Federated Training of Gra
 ## Upgrading: FedGraph Library with Real Distributed Communication
 https://github.com/FedGraph/fedgraph
 
-https://docs.fedgraph.org/en/latest/tutorials/intro.html#sphx-glr-tutorials-intro-py
-
 ## Google Colab Example for Quick Start
 https://github.com/yh-yao/FedGCN/blob/master/FedGCN_Colab_Example.ipynb
 
