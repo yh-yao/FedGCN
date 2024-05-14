@@ -1,4 +1,5 @@
 import glob
+import os
 import re
 from pathlib import Path
 
@@ -7,6 +8,7 @@ import torch
 import torch_geometric
 import torch_sparse
 
+PARTITIONED_DATA_PREFIX = './partition'
 
 def intersect1d(t1: torch.Tensor, t2: torch.Tensor) -> torch.Tensor:
     """
@@ -360,3 +362,37 @@ def increment_dir(dir: str, comment: str = "") -> str:
         if idxs:
             n = max(idxs) + 1  # increment
     return dir + str(n) + ("_" + comment if comment else "")
+
+
+def store_partition(worker_id: int, data: list) -> None:
+    prefix = PARTITIONED_DATA_PREFIX
+    if not os.path.exists(prefix):
+        os.makedirs(prefix)
+
+    node_indexes, comm_node_indexes, edge_indexes, train_indexes,\
+    test_indexes, train_labels, test_labels, features = data
+
+    torch.save(node_indexes,        f'{prefix}/node_indexes-{worker_id}.pt')
+    torch.save(comm_node_indexes,   f'{prefix}/comm_node_indexes-{worker_id}.pt')
+    torch.save(edge_indexes,        f'{prefix}/edge_indexes-{worker_id}.pt')
+    torch.save(train_indexes,       f'{prefix}/train_indexes-{worker_id}.pt')
+    torch.save(test_indexes,        f'{prefix}/test_indexes-{worker_id}.pt')
+    torch.save(train_labels,        f'{prefix}/train_labels-{worker_id}.pt')
+    torch.save(test_labels,         f'{prefix}/test_labels-{worker_id}.pt')
+    torch.save(features,            f'{prefix}/features-{worker_id}.pt')
+
+def load_partition(worker_id: int) -> list:
+    prefix = PARTITIONED_DATA_PREFIX
+    assert os.path.isdir(prefix), f"invalid partitioned data path at: {prefix}"
+
+    node_indexes        = torch.load(f'{prefix}/node_indexes-{worker_id}.pt')
+    comm_node_indexes   = torch.load(f'{prefix}/comm_node_indexes-{worker_id}.pt')
+    edge_indexes        = torch.load(f'{prefix}/edge_indexes-{worker_id}.pt')
+    train_indexes       = torch.load(f'{prefix}/train_indexes-{worker_id}.pt')
+    test_indexes        = torch.load(f'{prefix}/test_indexes-{worker_id}.pt')
+    train_labels        = torch.load(f'{prefix}/train_labels-{worker_id}.pt')
+    test_labels         = torch.load(f'{prefix}/test_labels-{worker_id}.pt')
+    features            = torch.load(f'{prefix}/features-{worker_id}.pt')
+
+    return [node_indexes, comm_node_indexes, edge_indexes, train_indexes,\
+            test_indexes, train_labels, test_labels, features]
