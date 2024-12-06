@@ -11,6 +11,10 @@ https://github.com/FedGraph/fedgraph
 ## Google Colab Example for Quick Start
 https://github.com/yh-yao/FedGCN/blob/master/FedGCN_Colab_Example.ipynb
 
+## Frequently Asked Questions
+
+https://github.com/yh-yao/FedGCN/discussions/6
+
 ## Quick Installation
 
 ```
