@@ -5,7 +5,7 @@
 
 Paper: [FedGCN: Convergence-Communication Tradeoffs in Federated Training of Graph Convolutional Networks](https://arxiv.org/pdf/2201.12433.pdf)
 
-## Upgrading: FedGraph Library with Real Distributed Communication
+## Upgraded: FedGraph Library with Real Distributed Communication and Homomorphic Encryption
 https://github.com/FedGraph/fedgraph
 
 ## Google Colab Example for Quick Start
